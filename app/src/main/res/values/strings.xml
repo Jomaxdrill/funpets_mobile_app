@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">FunPets_mb</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="textHome">Funpets es una red social con funcionalidades de tienda dedicada a ofrecer una experiencia social a los dueños de mascotas y ofrecer productos a sus mascotas.</string>
+    <string name="textHome2">Esta aplicación fue desarrollada utilizando Kotlin. Contiene los elementos básicos que puede llegar a utilizar una veterinaria en el dia a dia, mediante un sistema de venta de objetos para las distintas razas que pueden visitarnos.</string>
+    <string name="btBuyProduct">Agregar al carrito</string>
+    <string name="textTitleAdmin">Mi perfil</string>
+    <string name="btSaveAdmin">Guardar cambios</string>
+    <string name="hintName">Nombre</string>
+    <string name="hintAddress">Dirección</string>
+    <string name="hintPhone">Teléfono</string>
+    <string name="hintMail">Correo</string>
+    <string name="btSaveComment">Guardar comentario</string>
+    <string name="hintComment">Comentario</string>
+    <string name="textTitleComments">Mi comentario</string>
+    <string name="navigate_edit">Editar datos</string>
+    <string name="fab_new_comment">Nuevo comentario</string>
+    <string name="failSendIssue">Fallo en la red</string>
+    <string name="userAnon">anónimo</string>
+</resources>

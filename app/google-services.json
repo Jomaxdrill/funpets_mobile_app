@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "155783847664",
+    "project_id": "mobilefunpets",
+    "storage_bucket": "mobilefunpets.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155783847664:android:69abb2f91cd81abf396c35",
+        "android_client_info": {
+          "package_name": "com.example.funpets_mb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "155783847664-p3qmhc1t1fk0clds42gvqp9f1cp76ies.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.funpets_mb",
+            "certificate_hash": "2523423c75ba2b684f4c04c157e6b4c33ebfbd71"
+          }
+        },
+        {
+          "client_id": "155783847664-tulb1qeu9feeu53qva9gm4ik89ne6eir.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKLzFchtmGjoSJGtxCNUVleVkKaNYXoVQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "155783847664-tulb1qeu9feeu53qva9gm4ik89ne6eir.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
