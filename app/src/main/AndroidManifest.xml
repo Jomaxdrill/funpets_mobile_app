@@ -17,7 +17,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDKwTsw46RBGfUy5rTQx_1PJpO0Ljya-kM" />
+            android:value="AIzaSyBm3vmq2UtRRBq7YLPWizTyEe-nsMJjvY4" />
 
         <activity android:name="com.example.funpets_mb.view.ui.activities.SplashScreenActivity">
             <intent-filter>

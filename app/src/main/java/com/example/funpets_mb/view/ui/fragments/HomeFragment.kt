@@ -82,7 +82,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         val marker = Marker(map)
         marker.setPosition(geoPoint)
         marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
-        marker.setTitle("Tienda Don Emilio")
+        marker.setTitle("FunPets")
         map.overlays.add(marker)
     }
 
