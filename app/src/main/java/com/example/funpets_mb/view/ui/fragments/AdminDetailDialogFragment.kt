@@ -62,7 +62,7 @@ class AdminDetailDialogFragment : Fragment() {
                 binding.etPhoneAdmin.text.isNotBlank()
             ) {
 
-                informacionDBHelper.edit(
+                informacionDBHelper.insert(
                     binding.etNameAdmin.text.toString(),
                     binding.etAddressAdmin.text.toString(),
                     binding.etMailAdmin.text.toString(),

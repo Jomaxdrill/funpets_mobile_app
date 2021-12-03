@@ -71,10 +71,10 @@ class AdminFragment : Fragment() {
         }
         if(cursor.moveToFirst()){
             do{
-                binding.tvNameAdmin.setText("Nombre: " + cursor.getString(1).toString() )
-                binding.tvAddressAdmin.setText("Dirección: " + cursor.getString(2).toString() )
-                binding.tvPhoneAdmin.setText("Telefono: " + cursor.getString(4).toString() )
-                binding.tvMailAdmin.setText("Correo: " + cursor.getString(3).toString() )
+                binding.tvNameAdmin.text = "Nombre: " + cursor.getString(1).toString()
+                binding.tvAddressAdmin.text = "Dirección: " + cursor.getString(2).toString()
+                binding.tvPhoneAdmin.text = "Telefono: " + cursor.getString(4).toString()
+                binding.tvMailAdmin.text = "Correo: " + cursor.getString(3).toString()
             }while (cursor.moveToNext())
         }
     }
