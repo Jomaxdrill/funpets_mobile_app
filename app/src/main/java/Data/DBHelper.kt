@@ -22,7 +22,8 @@ class DBHelper(context: FragmentActivity?) :
                 Tables.information._nombre + " TEXT NOT NULL, " +
                 Tables.information._Direccion + " TEXT NOT NULL, " +
                 Tables.information._correo + " TEXT NOT NULL, " +
-                Tables.information._telefono + " TEXT NOT NULL)")
+                Tables.information._telefono + " TEXT NOT NULL," +
+                Tables.information._imagen + " TEXT NOT NULL)")
     }
     //PASO 6 Configuracion de versiones de la BD
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -31,19 +32,20 @@ class DBHelper(context: FragmentActivity?) :
         onCreate(db)
     }
     //PASO 7 añadir valores a la tabla
-    fun insert(name:String, address:String, email:String, phone:String){
+    fun insert(name:String, address:String, email:String, phone:String,image:String){
         val data = ContentValues()
         data.put(Tables.information._nombre,name)
         data.put(Tables.information._Direccion,address)
         data.put(Tables.information._correo,email)
         data.put(Tables.information._telefono,phone)
+        data.put(Tables.information._imagen,image)
         val db = this.writableDatabase
 
         db.insert(Tables.information.TABLE_NAME, null, data)
         db.close()
     }
     //Paso 13 modificar esos valores ingresados en la tabla de la base de datos
-    fun edit(name:String, address:String, email:String, phone:String){
+    fun edit(name:String, address:String, email:String, phone:String,image:String){
         val num = 1
         val args = arrayOf(num.toString())
 
@@ -52,6 +54,7 @@ class DBHelper(context: FragmentActivity?) :
         data.put(Tables.information._Direccion,address)
         data.put(Tables.information._correo,email)
         data.put(Tables.information._telefono,phone)
+        data.put(Tables.information._imagen,image)
         val db = this.writableDatabase
 
         db.update(Tables.information.TABLE_NAME, data," _id = ?", args)

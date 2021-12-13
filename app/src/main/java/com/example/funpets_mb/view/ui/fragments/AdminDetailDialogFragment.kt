@@ -2,20 +2,28 @@ package com.example.funpets_mb.view.ui.fragments
 
 import Data.DBHelper
 import Data.Tables
+import android.app.Activity.RESULT_OK
+import android.content.Intent
+import android.content.Intent.createChooser
 import android.database.sqlite.SQLiteDatabase
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import com.example.funpets_mb.databinding.FragmentAdminDetailDialogBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
+lateinit var foto_perfil: ImageView
 /**
  * A simple [Fragment] subclass.
  * Use the [AdminDetailDialogFragment.newInstance] factory method to
@@ -28,7 +36,7 @@ class AdminDetailDialogFragment : Fragment() {
 
     private var _binding: FragmentAdminDetailDialogBinding? = null
     private val binding get() = _binding!!
-
+    lateinit var uri_image:String
     lateinit var informacionDBHelper: DBHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +52,7 @@ class AdminDetailDialogFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
        // return inflater.inflate(R.layout.fragment_admin_detail_dialog, container, false)
         _binding = FragmentAdminDetailDialogBinding.inflate(inflater, container, false)
@@ -52,21 +61,30 @@ class AdminDetailDialogFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         //Paso 10. Configurando el almacenamiento de valores
+
+        binding.ibPhotoAdmin.setOnClickListener{
+            val intent=Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            intent.setType("*/*")
+            val frag: Fragment = this
+            frag.startActivityForResult(createChooser(intent,"Seleccione la Aplicacion"),10)
+
+        }
         binding.btSaveAdmin.setOnClickListener {
 
             if (binding.etNameAdmin.text.isNotBlank() &&
                 binding.etAddressAdmin.text.isNotBlank() &&
                 binding.etMailAdmin.text.isNotBlank() &&
-                binding.etPhoneAdmin.text.isNotBlank()
+                binding.etPhoneAdmin.text.isNotBlank()&&
+                !uri_image.isNullOrBlank()
             ) {
 
                 informacionDBHelper.insert(
                     binding.etNameAdmin.text.toString(),
                     binding.etAddressAdmin.text.toString(),
                     binding.etMailAdmin.text.toString(),
-                    binding.etPhoneAdmin.text.toString()
+                    binding.etPhoneAdmin.text.toString(),
+                    uri_image
                 )
 
                 //Paso 11. Limpiando los campos editables
@@ -107,6 +125,16 @@ class AdminDetailDialogFragment : Fragment() {
                     binding.etMailAdmin.setText(cursor.getString(3).toString() )
                 }while (cursor.moveToNext())
             }
+        }
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode== RESULT_OK){
+            val filePath: Uri = data!!.data!!
+            binding.ibPhotoAdmin.setImageURI(filePath)
+            val result = filePath.toString()
+            uri_image=result
+           // setFragmentResult("requestKey", bundleOf("data" to result))
         }
     }
     companion object {

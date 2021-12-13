@@ -39,10 +39,10 @@
 
                         <ImageButton
                             android:id="@+id/ibPhotoAdmin"
-                            android:layout_width="wrap_content"
+                            android:layout_width="123dp"
                             android:layout_height="@dimen/ibHeight"
-                            android:src="@mipmap/ic_funpets_launcher_foreground"
-                            android:layout_gravity="center_horizontal"/>
+                            android:layout_gravity="center_horizontal"
+                            android:src="@android:drawable/ic_menu_camera" />
 
                         <EditText
                             android:id="@+id/etNameAdmin"

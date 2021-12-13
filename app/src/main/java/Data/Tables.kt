@@ -12,6 +12,7 @@ class Tables {
             val _Direccion = "Address"
             val _telefono = "Phone"
             val _correo = "Email"
+            val _imagen="Imagen"
             var persons: MutableList<Person> = ArrayList()
         }
     }

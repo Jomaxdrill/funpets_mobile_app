@@ -3,6 +3,7 @@ package com.example.funpets_mb.view.ui.fragments
 import Data.DBHelper
 import Data.Tables
 import android.database.sqlite.SQLiteDatabase
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,9 +11,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.example.funpets_mb.R
 import com.example.funpets_mb.databinding.FragmentAdminBinding
+import java.io.File
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,7 +34,6 @@ class AdminFragment : Fragment() {
 
     private var _binding: FragmentAdminBinding? = null
     private val binding get() = _binding!!
-
     lateinit var informacionDBHelper: DBHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +58,16 @@ class AdminFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setFragmentResultListener("requestKey") { key, bundle ->
+            // Any type can be passed via to the bundle
+            val result = bundle.getString("data")
+            // Do something with the result...
+
+            if(result !="" && result !=null){
+                binding.idPhotoPerfilAdmin.setImageURI(Uri.parse(result))
+            }
+
+        }
         val button = view.findViewById<Button>(R.id.navigate_edition)
         button?.setOnClickListener {
             findNavController().navigate(R.id.adminDetailFragmentDialog, null)
@@ -75,9 +87,14 @@ class AdminFragment : Fragment() {
                 binding.tvAddressAdmin.text = "Dirección: " + cursor.getString(2).toString()
                 binding.tvPhoneAdmin.text = "Telefono: " + cursor.getString(4).toString()
                 binding.tvMailAdmin.text = "Correo: " + cursor.getString(3).toString()
+                binding.idPhotoPerfilAdmin.setImageURI(Uri.parse(cursor.getString(5).toString()))
             }while (cursor.moveToNext())
         }
+
+
     }
+
+
     companion object {
         /**
          * Use this factory method to create a new instance of

@@ -9,6 +9,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.example.funpets_mb.R
 import com.example.funpets_mb.databinding.ActivityMainBinding
 
+
+
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -46,5 +49,4 @@ class MainActivity : AppCompatActivity() {
                 REQUEST_PERMISSIONS_REQUEST_CODE);
         }
     }
-
 }
